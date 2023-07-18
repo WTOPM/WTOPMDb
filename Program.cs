@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 using WTOPMDb.Data;
 
 namespace WTOPMDb
@@ -7,7 +9,7 @@ namespace WTOPMDb
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            var connection = @"Data Source=WTOPMPC\SQLEXPRESS;Initial Catalog=WTOPMData;Integrated Security=True;Pooling=False";
+            var connection = @"Data Source=WTOPMPC\SQLEXPRESS;Initial Catalog=WTOPMData;Integrated Security=True;Pooling=False;Encrypt=False";
             // Add services to the container.
 
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(connection));
