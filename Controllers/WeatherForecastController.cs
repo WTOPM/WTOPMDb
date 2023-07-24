@@ -25,17 +25,17 @@ namespace WTOPMDb.Controllers
         [HttpGet]
         public async Task<IActionResult> GetWeathers()
         {
-          var weathers = await _context.Weathers.ToListAsync();
+          //var weathers = await _context.Weathers.ToListAsync();
 
-            return Ok(weathers);
+            return Ok();
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetWeather(int id)
         {
-            var weather = await _context.Weathers.FirstOrDefaultAsync(x => x.Id == id);
+           // var weather = await _context.Weathers.FirstOrDefaultAsync(x => x.Id == id);
 
-            return Ok(weather); 
+            return Ok(); 
         }
     }
 }

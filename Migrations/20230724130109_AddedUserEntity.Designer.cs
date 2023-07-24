@@ -11,8 +11,8 @@ using WTOPMDb.Data;
 namespace WTOPMDb.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230718084618_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230724130109_AddedUserEntity")]
+    partial class AddedUserEntity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace WTOPMDb.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("WTOPMDb.Models.Weather", b =>
+            modelBuilder.Entity("WTOPMDb.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,13 +32,21 @@ namespace WTOPMDb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Weathers");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
