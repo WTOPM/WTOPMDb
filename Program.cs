@@ -14,6 +14,7 @@ namespace WTOPMDb
 
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(connection));
             builder.Services.AddControllersWithViews();
+            builder.Services.AddCors();
 
             var app = builder.Build();
 
@@ -24,7 +25,7 @@ namespace WTOPMDb
 
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseCors(x => x.WithOrigins("http://localhost:44487").AllowCredentials().AllowAnyMethod().AllowAnyHeader());
 
             app.MapControllerRoute(
                 name: "default",
