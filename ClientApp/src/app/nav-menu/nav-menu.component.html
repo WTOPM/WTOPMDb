@@ -1,34 +1,20 @@
-<header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
-  >
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">WTOPMDb</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
-      >
-        <ul class="navbar-nav flex-grow">
-          <li
-            class="nav-item"
-            [routerLinkActive]="['link-active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>         
-        </ul>
-      </div>
+<header class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+      </ul>
+
+      <form #loginForm="ngForm" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" (ngSubmit)="login()">
+        <input type="text" class="form-control form-control-dark text-bg-dark loginForm" name="username" placeholder="Username" required [(ngModel)]="model.username">
+        <input type="password" class="form-control form-control-dark text-bg-dark loginForm" name="password" placeholder="Password" required [(ngModel)]="model.password">
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-outline-light me-2 lBtn">Login</button>
+        <button type="button" class="btn btn-warning sBtn">Sign-up</button>
+      </form>
+
     </div>
-  </nav>
+  </div>
 </header>

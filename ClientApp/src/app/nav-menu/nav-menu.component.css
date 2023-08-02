@@ -1,18 +1,17 @@
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+.loginForm {
+  float: left;
+  width: 30%;
+  margin: 0 0.5%;
 }
 
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.lBtn {
+  float: left;
+  width: 15%;
+  margin: 0px 0px 0px 20px;
 }
 
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.sBtn {
+  float: left;
+  width: 15%;
+  margin: 0px 0px 0px 0px;
 }
