@@ -15,11 +15,7 @@ namespace WTOPMDb
         {
             var config = new ConfigurationBuilder().AddJsonFile("appsettings.json", optional: false).Build();
             var builder = WebApplication.CreateBuilder(args);
-            //var connection = @"Data Source=WTOPMPC\SQLEXPRESS;Initial Catalog=WTOPMData;Integrated Security=True;Pooling=False;Encrypt=False";
-            
             // Add services to the container.
-
-           // builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             builder.Services.AddControllersWithViews();
             builder.Services.AddCors();
