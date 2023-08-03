@@ -15,3 +15,21 @@
   width: 15%;
   margin: 0px 0px 0px 0px;
 }
+
+.searchForm {
+  float: left;
+  width: 50%;
+  margin: 0 0.5%;
+}
+
+.searchBtn {
+  float: left;
+  width: 20%;
+  margin: 0px 0px 0px 20px;
+}
+
+.logoutBtn {
+  float: left;
+  width: 20%;
+  margin: 0px 0px 0px 0px;
+}

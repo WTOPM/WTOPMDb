@@ -8,10 +8,16 @@
         <li><a href="#" class="nav-link px-2 text-white">About</a></li>
       </ul>
 
-      <form #loginForm="ngForm" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" (ngSubmit)="login()">
+      <form *ngIf="loggedIn()" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+        <input type="text" class="form-control form-control-dark text-bg-dark searchForm" name="searchForm" placeholder="Search">
+        <button type="submit" class="btn btn-outline-light me-2 searchBtn">Search</button>
+        <button type="button" class="btn btn-danger logoutBtn" (click)="logout()">Logout</button>
+      </form>
+
+      <form *ngIf="!loggedIn()" #loginForm="ngForm" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" (ngSubmit)="login()">
         <input type="text" class="form-control form-control-dark text-bg-dark loginForm" name="username" placeholder="Username" required [(ngModel)]="model.username">
         <input type="password" class="form-control form-control-dark text-bg-dark loginForm" name="password" placeholder="Password" required [(ngModel)]="model.password">
-        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-outline-light me-2 lBtn">Login</button>
+        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary me-2 lBtn">Login</button>
         <button type="button" class="btn btn-warning sBtn">Sign-up</button>
       </form>
 
