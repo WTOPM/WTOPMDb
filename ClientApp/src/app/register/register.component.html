@@ -3,20 +3,21 @@
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header p-5 pb-4 border-bottom-0">
         <h1 class="fw-bold mb-0 fs-2">Sign up</h1>
-        <button type="button" class="btn-close" routerLink=""></button>
+        <button type="button" class="btn-close" routerLink="" (click)="cancel()"></button>
       </div>
-
       <div class="modal-body p-5 pt-0">
-        <form class="">
+
+        <form #registerForm="ngForm" (ngSubmit)="register()">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control rounded-3" placeholder="name@example.com">
+            <input type="email" class="form-control rounded-3" required name="email" [(ngModel)]="model.username" placeholder="name@example.com">
             <label>Email address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control rounded-3" placeholder="Password">
+            <input type="password" class="form-control rounded-3" required name="password" [(ngModel)]="model.password" placeholder="Password">
             <label>Password</label>
           </div>
           <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
+
           <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
           <hr class="my-4">
           <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
@@ -33,6 +34,7 @@
             Sign up with GitHub
           </button>
         </form>
+
       </div>
     </div>
   </div>
