@@ -18,7 +18,9 @@
         <input type="text" class="form-control form-control-dark text-bg-dark loginForm" name="username" placeholder="Username" required [(ngModel)]="model.username">
         <input type="password" class="form-control form-control-dark text-bg-dark loginForm" name="password" placeholder="Password" required [(ngModel)]="model.password">
         <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary me-2 lBtn">Login</button>
-        <button type="button" class="btn btn-warning sBtn">Sign-up</button>
+
+        <button routerLink="register" type="button" class="btn btn-warning sBtn">Sign-up</button>
+
       </form>
 
     </div>

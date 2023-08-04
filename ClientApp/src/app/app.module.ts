@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'register', component: RegisterComponent, pathMatch: 'full' },
     ])
   ],
   providers: [
