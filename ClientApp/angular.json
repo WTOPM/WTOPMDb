@@ -24,7 +24,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "allowedCommonJsDependencies": [
-              "oidc-client"
+              "oidc-client",
+              "lodash",
+              "alertifyjs"
             ],
             "assets": [
               "src/assets"
