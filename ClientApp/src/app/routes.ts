@@ -6,8 +6,24 @@ import { AuthGuard } from "./_guards/auth.guard";
 import { LogoutGuard } from "./_guards/logout.guard";
 
 export const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [LogoutGuard] },
-  { path: 'main', component: MainComponent, canActivate: [AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [LogoutGuard] }, 
-  { path: '**', redirectTo: 'home', pathMatch: 'full'},
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [LogoutGuard],
+    children: [
+      { path: 'register', component: RegisterComponent },
+      { path: 'home', component: HomeComponent },
+      { path: '', component: HomeComponent }
+    ]
+  },
+
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'main', component: MainComponent }
+    ]
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full'},
 ]
