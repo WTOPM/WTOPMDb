@@ -8,9 +8,9 @@
         <li><a href="#" class="nav-link px-2 text-white">About</a></li>
       </ul>
 
-      <form *ngIf="loggedIn()" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+      <form *ngIf="loggedIn()" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" (ngSubmit)="logout()">
         <input type="text" class="form-control form-control-dark text-bg-dark searchForm" name="searchForm" placeholder="Search">
-        <button type="submit" class="btn btn-outline-light me-2 searchBtn">Search</button>
+        <button type="button" class="btn btn-outline-light me-2 searchBtn">Search</button>
         <button type="button" class="btn btn-danger logoutBtn" (click)="logout()">Logout</button>
       </form>
 

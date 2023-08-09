@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   baseUrl = 'http://localhost:5091/auth/';
   jwtHelper = new JwtHelperService;
+  private _logout = false;
   constructor(private http: HttpClient) { }
 
   login(model: any) {
@@ -28,5 +29,4 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
   }
-
 }

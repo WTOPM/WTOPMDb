@@ -9,6 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
+import { appRoutes } from './routes';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +18,13 @@ import { RegisterComponent } from './register/register.component';
     NavMenuComponent,
     HomeComponent,
     RegisterComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'register', component: RegisterComponent, pathMatch: 'full' },
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AuthService
