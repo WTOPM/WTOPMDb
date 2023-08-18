@@ -10,7 +10,6 @@ import { AuthService } from '../_services/auth.service';
 })
 export class NavMenuComponent implements OnInit {
   model: any = {};
-
   constructor(private authService: AuthService,
               private alertify: AlertifyService,
               private router: Router
@@ -19,6 +18,8 @@ export class NavMenuComponent implements OnInit {
   ngOnInit() {
 
   }
+
+
 
   login() {
     this.authService.login(this.model).subscribe(next => {
@@ -38,5 +39,7 @@ export class NavMenuComponent implements OnInit {
     localStorage.removeItem('token');
     this.alertify.message('Logged out');
     this.router.navigate(['/home']);
+    this.model.username = '';
+    this.model.password = '';
   }
 }
