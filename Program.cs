@@ -21,7 +21,10 @@ namespace WTOPMDb
             builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             builder.Services.AddControllersWithViews();
             builder.Services.AddCors();
+
             builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+            builder.Services.AddScoped<IWtopmDbRepository, WtopmDbRepository>();
+
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
